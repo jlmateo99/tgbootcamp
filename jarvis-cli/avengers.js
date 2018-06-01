@@ -12,14 +12,14 @@ class Avengers {
   }
 
   assemble(cb) {
-    Promise.all([this.marvel.characters.findByName(('Thor')]).then((responses) => {
-      let heroProfiles = [])
+    Promise.all([this.marvel.characters.findByName('Thor')]).then((responses) => {
+      let heroProfiles = []
         responses.forEach((character) => {
           let profile = new Profile({name:character.data[0].name,description: character.data[0].description})
           heroProfiles.push(profile.createProfile())
         })
         console.log('Avengers Assemble!!!')
-        cd(JSON.stringify(heroProfiles))
+        cb(JSON.stringify(heroProfiles))
       })
   }
 }

@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 var program = require('commander')
-var colors = require('colors')
-var Marvel = require('./marvel.js')
+var Avengers = require('./avengers')
 
 
 program
   .version('0.1.0')
-  .option('-f, --f100', 'Give me first 100 marvel characters')
+  .option('-ga, --getAvengers', 'Get Avengers')
   .parse(process.argv);
 
-if (program.f100) {
-  var marvel = new Marvel({
+if (program.getAvengers) {
+  var avengers = new Avengers({
       publicKey : '3576b3a7bf01368d4f6c9562e15e2d68',
       privateKey : '0c5d9057e217c7fe882c5ff85beef13251b7c23c' 
-    });
-  marvel.getFirst100()
+    })
+  avengers.assemble(function(avengers) {
+    console.log(avengers)
+  })
 }
 
 
