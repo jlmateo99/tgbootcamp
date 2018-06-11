@@ -16,7 +16,7 @@ class Avengers {
     Promise.all([this.marvel.characters.findByName('Thor'),this.marvel.characters.findByName('Hulk'),this.marvel.characters.findByName('Vision'),this.marvel.characters.findByName('spider-man'),this.marvel.characters.findByName('Captain America')]).then(function (responses) {
       let avengers = []
         responses.forEach(function(character) {
-          let profile = new Profile({name:character.data[0].name,description: character.data[0].description})
+          let profile = new Profile({name:character.data[0].name,description: character.data[0].description, comics:character.data[0].comics, events:character.data[0].events})
           avengers.push(profile.createProfile())
         })
         console.log('Avengers Assemble!!!')

@@ -1,0 +1,10 @@
+{
+    "apps": [
+        {
+            "name": "API Server",
+            "script": "npm",
+            "args" : "start",
+            "auotrestart": false
+        }
+  ]
+}
